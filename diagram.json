@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "author": "Richel Wellington",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 25.8, "left": -189.2, "attrs": {} },
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": -0.18, "left": 273.37, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 17,
+      "left": 163.2,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn3",
+      "top": 65,
+      "left": 163.2,
+      "attrs": { "color": "blue", "xray": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 44.4,
+      "left": 445.4,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "led3", "top": 102, "left": 445.4, "attrs": { "color": "blue" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 98.4,
+      "left": 155.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 119.15,
+      "left": 499.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": -31,
+      "left": 163.2,
+      "attrs": { "color": "red", "xray": "1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 23.15,
+      "left": 480,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -13.2,
+      "left": 435.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 147.95,
+      "left": 499.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -112.06,
+      "left": -105.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": 265.4,
+      "left": -211.2,
+      "attrs": { "color": "black", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn2:1.r", "esp:GND.3", "green", [ "v0", "h58.4", "v-57.6", "h182.4", "v259.2" ] ],
+    [ "btn2:2.r", "esp:3", "green", [ "h58.4", "v106" ] ],
+    [ "btn3:2.r", "esp:4", "green", [ "h68", "v-9.2" ] ],
+    [ "led3:C", "esp:GND.4", "green", [ "v0" ] ],
+    [ "bz1:2", "esp:15", "green", [ "v0", "h66.8", "v-86.4" ] ],
+    [ "bz1:1", "esp:GND.1", "green", [ "v48" ] ],
+    [
+      "esp:GND.2",
+      "bb1:tn.25",
+      "black",
+      [ "v0", "h28.8", "v-9.6", "h0", "v-76.8", "h-268.8", "v105.6" ]
+    ],
+    [ "led2:C", "bb1:tn.16", "green", [ "v0", "h-38", "v230.4", "h-316.8" ] ],
+    [ "led2:A", "r2:1", "green", [ "v0", "h28.8" ] ],
+    [ "r2:2", "esp:14", "green", [ "v0", "h37.2", "v211.2", "h-374.4", "v-124.8" ] ],
+    [ "btn1:1.r", "bb1:tn.21", "green", [ "v-48", "h-8.8" ] ],
+    [
+      "r3:2",
+      "esp:13",
+      "green",
+      [ "v0", "h37.2", "v19.2", "h-192", "v230.4", "h-144", "v-76.8" ]
+    ],
+    [ "r3:1", "led1:A", "green", [ "v0" ] ],
+    [ "led1:C", "bb1:tn.19", "green", [ "v0", "h-47.6", "v-124.8", "h-345.6" ] ],
+    [ "btn1:2.r", "esp:5", "yellow", [ "h48.8", "v77.2" ] ],
+    [ "btn3:1.r", "bb1:tn.22", "green", [ "v0", "h29.6", "v-9.6", "h-134.4" ] ],
+    [ "led3:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "esp:12", "green", [ "v144", "h-327.6", "v-105.6" ] ],
+    [ "oled1:GND", "bb1:tn.2", "black", [ "v-19.2", "h-115.2" ] ],
+    [ "esp:3V3.1", "bb1:8t.a", "green", [ "v-19.2", "h-364.85" ] ],
+    [ "oled1:VCC", "bb1:8t.c", "red", [ "v-38.4", "h-67.05", "v153.6" ] ],
+    [ "esp:21", "bb1:13t.a", "purple", [ "h48", "v-201.6", "h-451.2" ] ],
+    [ "oled1:SDA", "bb1:13t.b", "purple", [ "v-48", "h57.67", "v172.8" ] ],
+    [ "esp:16", "bb1:24b.f", "green", [ "h0" ] ],
+    [ "oled1:SCL", "bb1:24b.h", "green", [ "v-67.2", "h173.1", "v422.4" ] ],
+    [ "esp:10", "bb1:7b.i", "green", [ "h0" ] ],
+    [ "bb1:7b.j", "btn4:1.r", "green", [ "v0" ] ],
+    [ "btn4:2.r", "bb1:tn.1", "green", [ "h9.8", "v48.2", "h-124.8", "v-9.6" ] ]
+  ],
+  "dependencies": {}
+}
